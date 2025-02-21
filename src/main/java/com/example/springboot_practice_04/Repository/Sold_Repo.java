@@ -13,6 +13,5 @@ public interface Sold_Repo extends JpaRepository<Sold, Integer> {
 
 
     Optional<Sold> findByBookId(int bookId);
-
     Optional<Sold> findByMemberId(int memberId);
 }

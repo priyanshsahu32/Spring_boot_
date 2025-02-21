@@ -39,9 +39,15 @@ public class Sold_Service {
 
     public Sold addTxt(int sold_id, int book_id, int member_id) {
         // Check if the book is already allotted
-        Optional<Sold> existingSold = repo.findByMemberId(member_id);
+        Optional<Sold> existingSold = repo.findByBookId(book_id);
+
+        Optional<Sold> existingSold2 = repo.findByMemberId(member_id);
         if (existingSold.isPresent()) {
-            throw new RuntimeException("Member has already taken one book");
+            throw new RuntimeException("Book is already allotted");
+        }
+
+        if (existingSold2.isPresent()) {
+            throw new RuntimeException("Member has already taken a book");
         }
 
         // Fetch book and member details
