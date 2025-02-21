@@ -5,13 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 @Component
 public interface Sold_Repo extends JpaRepository<Sold, Integer> {
-
-
-    Optional<Sold> findByBookId(int bookId);
-
 }
